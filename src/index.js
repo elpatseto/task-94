@@ -7,10 +7,10 @@ window.addEventListener("DOMContentLoaded", () => {
   const app = new Application();
   // Used to access the app instance by the automated tests
 
-  const div = document.getElementById("emojis");
-
-
   app.setEmojis = (arr) => {
+    const div = document.getElementById("emojis");
+    div.innerHTML="";
+
     arr.forEach((monkey) => {
       let p = document.createElement("p");
       p.textContent = monkey;
@@ -19,14 +19,14 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   app.addBananas = (arr) => {
-    div.innerHTML="";
-    const addBananas = arr.map((x) => {
-      let p = document.createElement("p");
-      p.textContent = x + " + banana";
-      div.append(p);
+    let addBananas = arr.map((monkey) => {
+      return monkey += " + banana";
     });
-
+    app.setEmojis(addBananas);
   }
+
+
+
 
   app.setEmojis(["🐒", "🦍", "🦧"]);
   app.addBananas(["🐒", "🦍", "🦧"]);

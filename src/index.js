@@ -7,6 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
   const app = new Application();
   // Used to access the app instance by the automated tests
 
+  let monkeys = ["🐒", "🦍", "🦧"];
+
   app.setEmojis = (arr) => {
     const div = document.getElementById("emojis");
     div.innerHTML="";
@@ -18,17 +20,15 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  app.addBananas = (arr) => {
-    let addBananas = arr.map((monkey) => {
+  app.addBananas = () => {
+    let addBananas = monkeys.map((monkey) => {
       return monkey += " + banana";
     });
     app.setEmojis(addBananas);
   }
 
 
-
-
-  app.setEmojis(["🐒", "🦍", "🦧"]);
-  app.addBananas(["🐒", "🦍", "🦧"]);
+  app.setEmojis(monkeys);
+  app.addBananas();
   window.__JS_APP = app;
 });

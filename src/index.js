@@ -8,9 +8,9 @@ window.addEventListener("DOMContentLoaded", () => {
   // Used to access the app instance by the automated tests
 
   let monkeys = ["🐒", "🦍", "🦧"];
+  let div = document.getElementById("emojis");
 
   app.setEmojis = (arr) => {
-    const div = document.getElementById("emojis");
     div.innerHTML="";
 
     arr.forEach((monkey) => {
@@ -26,7 +26,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     app.setEmojis(addBananas);
   }
-
 
   app.setEmojis(monkeys);
   app.addBananas();
